@@ -23,15 +23,9 @@ public class RotProperty extends TypeIdentifier
         days = _days;
     }
 
-    public long getRotTime()
-    {
-        if (ConfigContainer.zdebugging.debug)
-        {
-            double ticksPerDay = ConfigContainer.zdebugging.rotMultiplier * ConfigHandler.TICKS_PER_DAY;
-            return days * (long) ticksPerDay;
-        }
-
-        return days * ConfigHandler.TICKS_PER_DAY;
+    public long getRotTime() {
+        double ticksPerDay = ConfigContainer.modifiers.rotMultiplier * ConfigHandler.TICKS_PER_DAY;
+        return days * (long) ticksPerDay;
     }
 
     public boolean doesRot()

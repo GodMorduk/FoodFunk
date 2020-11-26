@@ -25,6 +25,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import sun.font.TextSource;
 
 public class Rot extends EventTimedThingCap<IThing, RotInfo> implements IRot
 {
@@ -118,10 +119,20 @@ public class Rot extends EventTimedThingCap<IThing, RotInfo> implements IRot
                 boolean beingCrafted = (stack != null) ? CraftingUtil.isItemBeingCraftedBy(stack, entity) : false;
                 String key = getStateTooltipKey(info, beingCrafted);
 
+                double daysLeft = info.getDaysLeft();
+                double daysTotal = info.getDaysTotal();
+
+                double multiplier = ConfigContainer.modifiers.rotMultiplier;
+
+                if (multiplier != 0) {
+                    daysLeft = daysLeft / multiplier;
+                    daysTotal = daysTotal / multiplier;
+                }
+
                 if (key != null)
                 {
-                    tips.add(new TextComponentTranslation(key, info.getPercent() + "%", info.getDaysLeft(),
-                            info.getDaysTotal()).getUnformattedText());
+                    tips.add(new TextComponentTranslation(key, info.getPercent() + "%", (int) daysLeft,
+                            (int) daysTotal).getUnformattedText());
                 }
 
                 // advanced tooltip debug info

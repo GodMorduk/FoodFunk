@@ -16,7 +16,7 @@ Requires [Wumple Util Library](https://github.com/Stormwind99/WumpleUtil).
 
 ## Credits
 
-* [Stormwind99](https://github.com/Stormwind99) - author
+* [Stormwind99](https://github.com/Stormwind99) - original author
 * [Choonster](https://github.com/Choonster) - for CapabilityContainerListener, etc
 * [DYColdWind](https://github.com/DYColdWind) and others for translations
 * [Funwayguy](https://github.com/Funwayguy), [GenDeathrow](https://github.com/GenDeathrow), [thislooksfun](https://github.com/thislooksfun), [TimbuckTato](https://github.com/TimbuckTato) - authors of discontinued [EnviroMine](https://minecraft.curseforge.com/projects/enviromine) mod

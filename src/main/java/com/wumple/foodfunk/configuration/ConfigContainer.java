@@ -64,7 +64,7 @@ public class ConfigContainer
     }
     
     @Name("Modifiers")
-    @Config.Comment("Set values that modify rot speed for preserving containers and dimensions.")
+    @Config.Comment("Set values that modify rot speed for preserving containers, dimensions and overall rot multiplier")
     public static Modifiers modifiers = new Modifiers();
 
     public static class Modifiers
@@ -78,6 +78,10 @@ public class ConfigContainer
         @Config.Comment("When in listed dimension, contents will rot double speed at 200, normally at 100, never at 0, and half speed at -100")
         @RangeInt(min = -1600, max = 1600)
         public HashMap<String, Integer> dimensionRatios = new HashMap<String, Integer>();
+
+        @Name("Rot time multiplier")
+        @Config.Comment("Speed or slow all rot. < 1 faster, > 1 slower.")
+        public double rotMultiplier = 1.0;
     }
     
     @Name("Rotten")
@@ -125,10 +129,6 @@ public class ConfigContainer
         @Name("Debug mode")
         @Config.Comment("Enable debug features on this menu, display extra debug info.")
         public boolean debug = false;
-
-        @Name("Rot time multiplier")
-        @Config.Comment("Speed or slow all rot. < 1 faster, > 1 slower.")
-        public double rotMultiplier = 1.0;
     }
 
     @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
